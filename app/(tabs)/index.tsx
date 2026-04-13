@@ -87,7 +87,12 @@ export default function App() {
                 <Text className="home-user-name">{displayName}</Text>
               </View>
 
-              <Pressable onPress={() => setIsModalVisible(true)}>
+              <Pressable
+                onPress={() => {
+                  setIsModalVisible(true);
+                  posthog.capture("subscription_add_modal_opened");
+                }}
+              >
                 <Image source={icons.add} className="home-add-icon" />
               </Pressable>
             </View>
