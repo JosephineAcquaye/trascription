@@ -18,15 +18,15 @@ const TabIcon = ({ focused, icon }: TabIconProps) => {
   );
 };
 const TabLayout = () => {
-  const insets = useSafeAreaInsets();
   const { isSignedIn, isLoaded } = useAuth();
+  const insets = useSafeAreaInsets();
 
-  // Wait for auth to load before rendering
+  // Wait for auth to load before rendering anything
   if (!isLoaded) {
     return null;
   }
 
-  // If not signed in, redirect to sign-in
+  // Redirect to sign-in if user is not authenticated
   if (!isSignedIn) {
     return <Redirect href="/(auth)/sign-in" />;
   }

@@ -59,8 +59,8 @@ export default function App() {
     posthog.capture("subscription_created", {
       subscription_name: newSubscription.name,
       subscription_price: newSubscription.price,
-      subscription_frequency: newSubscription.frequency,
-      subscription_category: newSubscription.category,
+      subscription_frequency: newSubscription.frequency || "",
+      subscription_category: newSubscription.category || "",
     });
   };
 
@@ -116,7 +116,10 @@ export default function App() {
               <FlatList
                 data={upcomingSubscriptions}
                 renderItem={({ item }) => (
-                  <UpcomingSubscriptionCard {...item} />
+                  <UpcomingSubscriptionCard
+                    {...item}
+                    daysLeft={dayjs(item.renewalDate).diff(dayjs(), "day")}
+                  />
                 )}
                 keyExtractor={(item) => item.id}
                 horizontal
