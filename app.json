@@ -4,7 +4,7 @@
     "slug": "Trascription",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon/logo.png",
+    "icon": "./assets/icons/logo.png",
     "scheme": "trascription",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
